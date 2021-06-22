@@ -23,187 +23,162 @@ void instantiate(string&, string*,int&, int*,string&, string&, string&, string&,
 int main()
 {
 string conclutionQueue[5],
-//                        56
-               variableLst[] = {"","batteryIssue","alternatorIssue",
-                                "starterMotorIssue","pedalIssue","speakerIssue",
-                                "doorIssue","strWhIssue","fuleInjIssue",
-                                "fulePumpIssue","fuleFtrIssue","gasTankEmIssue",
-                                "sensorIssue","waterPumpIssue","serpBltIssue",
-                                "ignCoIssue","distCapIssue","alignmentIssue",
-                                
-                                "airConIssue", "gearIssue","brkIssue",
-                               
-                                "battery","battRepair",
-                                "alternator","altRepair",
-                                "starterMotor","stMoRepair",
-                                "pedal","pedalRepair",
-                                "speaker","speakerRepair",
-                                "door", "doorRepair",
-                                "strWh", "strWhRepair",
-                                "fuleInj", "fuleInjRepair",
-                                "fulePump", "fulePumpRepair",
-                                "fuleFtr", "fuleFtrRepair",
-                                "gasTankEm", "gasTankEmRepair",
-                                "sensor", "sensorRepair",
-                                "waterPump", "waterPumpRepair",
-                                "serpBlt", "serpBltRepair",
-                                "ignCo", "ignCoRepair",
-                                "distCap", "distCapRepair",
-                                "alignment", "alignmentRepair",
-                                "airCon", "airConRepair",
-                                "gear", "gearRepair",
-                                "brk", "brkRepair",
-                                ""},
-                              
-               clauseVariableLst[321],
-               conditionVariable,
-               variable,
-              
-               batteryIssue, battery2, battRepair,
-               alternatorIssue, alternator2, altRepair,
-               starterMotorIssue, starterMotor2, stMoRepair,
-               pedalIssue, pedal2, pedalRepair,
-               speakerIssue, speaker2, speakerRepair,
-               doorIssue, door2, doorRepair,
-               strWhIssue, strWh2, strWhRepair,
-               fuleInjIssue, fuleInj2, fuleInjRepair,
-               fulePumpIssue, fulePump2, fulePumpRepair,
-               fuleFtrIssue, fuleFtr2, fuleFtrRepair,
-               gasTankEmIssue, gasTankEm2, gasTankEmRepair,
-               sensorIssue, sensor2, sensorRepair,
-               waterPumpIssue, waterPump2, waterPumpRepair,
-               serpBltIssue, serpBlt2, serpBltRepair,
-               ignCoIssue, ignCo2, ignCoRepair,
-               distCapIssue, distCap2, distCapRepair,
-               alignmentIssue, alignment2, alignmentRepair,
-               airConIssue, airCon2, airConRepair,
-               gearIssue, gear2, gearRepair,
-               brkIssue, brk2, brkRepair;
+       variableLst[] = {"","batteryIssue","alternatorIssue","starterMotorIssue",
+                        "pedalIssue","speakerIssue","doorIssue","strWhIssue",
+                        "fuleInjIssue","fulePumpIssue","fuleFtrIssue","gasTankEmIssue",
+                        "sensorIssue","waterPumpIssue","serpBltIssue","ignCoIssue",
+                        "distCapIssue","alignmentIssue","airConIssue","gearIssue",
+                        "brkIssue","battery","battRepair","alternator","altRepair",
+                        "starterMotor","stMoRepair","pedal","pedalRepair","speaker",
+                        "speakerRepair","door","doorRepair","strWh","strWhRepair",
+                        "fuleInj", "fuleInjRepair","fulePump", "fulePumpRepair",
+                        "fuleFtr", "fuleFtrRepair","gasTankEm", "gasTankEmRepair",
+                        "sensor", "sensorRepair","waterPump", "waterPumpRepair",
+                        "serpBlt", "serpBltRepair","ignCo", "ignCoRepair",
+                        "distCap", "distCapRepair","alignment", "alignmentRepair",
+                        "airCon", "airConRepair","gear", "gearRepair","brk",
+                        "brkRepair",""},
+      clauseVariableLst[321],
+      conditionVariable,variable,
+      batteryIssue, battery2, battRepair,
+      alternatorIssue, alternator2, altRepair,
+      starterMotorIssue, starterMotor2, stMoRepair,
+      pedalIssue, pedal2, pedalRepair,
+      speakerIssue, speaker2, speakerRepair,
+      doorIssue, door2, doorRepair,
+      strWhIssue, strWh2, strWhRepair,
+      fuleInjIssue, fuleInj2, fuleInjRepair,
+      fulePumpIssue, fulePump2, fulePumpRepair,
+      fuleFtrIssue, fuleFtr2, fuleFtrRepair,
+      gasTankEmIssue, gasTankEm2, gasTankEmRepair,
+      sensorIssue, sensor2, sensorRepair,
+      waterPumpIssue, waterPump2, waterPumpRepair,
+      serpBltIssue, serpBlt2, serpBltRepair,
+      ignCoIssue, ignCo2, ignCoRepair,
+      distCapIssue, distCap2, distCapRepair,
+      alignmentIssue, alignment2, alignmentRepair,
+      airConIssue, airCon2, airConRepair,
+      gearIssue, gear2, gearRepair,
+      brkIssue, brk2, brkRepair;
                
-   
-  
-   
    int frontPtr = 1,                   // front pointer for the conclution queue
        k2,                              // Holds the value for the KEY
        firstStm,                       // Holds the first statement
        statmentNum,                    // Holds the statement number
        clauseNum,                      // Holds the clause number
        backPtr = 1,                    // back pointer for the conclution queue
-       setVal,                         //
+       setVal,
+       repairCode = 0,//
        instlt2[62];
    
    for(int i = 0; i < 62; i++)
       instlt2[i] = 0;
    
-   for(int i = 0; i < 321; i++)        // Fills clauseVariableLst[] elements with ""
+   for(int i = 0; i < 321; i++)
       clauseVariableLst[i] = "";
   
-   clauseVariableLst[1] = "battery";           // 1
+   clauseVariableLst[1] = "battery";
    clauseVariableLst[5] = "battery";
    clauseVariableLst[9] = "batteryIssue";
    clauseVariableLst[13] = "batteryIssue";
    
-   clauseVariableLst[17] = "alternator";           // 2
+   clauseVariableLst[17] = "alternator";
    clauseVariableLst[21] = "alternator";
    clauseVariableLst[25] = "alternatorIssue";
    clauseVariableLst[29] = "alternatorIssue";
    
-   clauseVariableLst[33] = "starterMotor";           // 3
+   clauseVariableLst[33] = "starterMotor";
    clauseVariableLst[37] = "starterMotor";
    clauseVariableLst[41] = "starterMotorIssue";
    clauseVariableLst[45] = "starterMotorIssue";
  
-   clauseVariableLst[49] = "pedal";           // 4
+   clauseVariableLst[49] = "pedal";
    clauseVariableLst[53] = "pedal";
    clauseVariableLst[57] = "pedalIssue";
    clauseVariableLst[61] = "pedalIssue";
    
-   clauseVariableLst[65] = "speaker";           // 1
+   clauseVariableLst[65] = "speaker";
    clauseVariableLst[69] = "speaker";
    clauseVariableLst[73] = "speakerIssue";
    clauseVariableLst[77] = "speakerIssue";
    
-   clauseVariableLst[81] = "door";           // 1
+   clauseVariableLst[81] = "door";
    clauseVariableLst[85] = "door";
    clauseVariableLst[89] = "doorIssue";
    clauseVariableLst[93] = "doorIssue";
    
-   clauseVariableLst[97] = "strWh";           // 1
+   clauseVariableLst[97] = "strWh";
    clauseVariableLst[101] = "strWh";
    clauseVariableLst[105] = "strWhIssue";
    clauseVariableLst[109] = "strWhIssue";
    
-   clauseVariableLst[113] = "fuleInj";           // 1
+   clauseVariableLst[113] = "fuleInj";
    clauseVariableLst[117] = "fuleInj";
    clauseVariableLst[121] = "fuleInjIssue";
    clauseVariableLst[125] = "fuleInjIssue";
    
-   clauseVariableLst[129] = "fulePump";           // 1
+   clauseVariableLst[129] = "fulePump";
    clauseVariableLst[133] = "fulePump";
    clauseVariableLst[137] = "fulePumpIssue";
    clauseVariableLst[141] = "fulePumpIssue";
    
-   clauseVariableLst[145] = "fuleFtr";           // 1
+   clauseVariableLst[145] = "fuleFtr";
    clauseVariableLst[149] = "fuleFtr";
    clauseVariableLst[153] = "fuleFtrIssue";
    clauseVariableLst[157] = "fuleFtrIssue";
    
-   clauseVariableLst[161] = "gasTankEm";           // 1
+   clauseVariableLst[161] = "gasTankEm";
    clauseVariableLst[165] = "gasTankEm";
    clauseVariableLst[169] = "gasTankEmIssue";
    clauseVariableLst[173] = "gasTankEmIssue";
    
-   clauseVariableLst[177] = "sensor";           // 1
+   clauseVariableLst[177] = "sensor";
    clauseVariableLst[181] = "sensor";
    clauseVariableLst[185] = "sensorIssue";
    clauseVariableLst[189] = "sensorIssue";
    
-   clauseVariableLst[193] = "waterPump";           // 1
+   clauseVariableLst[193] = "waterPump";
    clauseVariableLst[197] = "waterPump";
    clauseVariableLst[201] = "waterPumpIssue";
    clauseVariableLst[205] = "waterPumpIssue";
    
-   clauseVariableLst[209] = "serpBlt";           // 1
+   clauseVariableLst[209] = "serpBlt";
    clauseVariableLst[213] = "serpBlt";
    clauseVariableLst[217] = "serpBltIssue";
    clauseVariableLst[221] = "serpBltIssue";
    
-   clauseVariableLst[225] = "ignCo";           // 1
+   clauseVariableLst[225] = "ignCo";
    clauseVariableLst[229] = "ignCo";
    clauseVariableLst[233] = "ignCoIssue";
    clauseVariableLst[237] = "ignCoIssue";
    
-   clauseVariableLst[241] = "distCap";           // 1
+   clauseVariableLst[241] = "distCap";
    clauseVariableLst[245] = "distCap";
    clauseVariableLst[249] = "distCapIssue";
    clauseVariableLst[253] = "distCapIssue";
    
-   clauseVariableLst[257] = "alignment";           //
+   clauseVariableLst[257] = "alignment";
    clauseVariableLst[261] = "alighment";
    clauseVariableLst[265] = "alignmentIssue";;
    clauseVariableLst[269] = "alignmentIssue";
    
-   clauseVariableLst[273] = "airCon";           // 18
+   clauseVariableLst[273] = "airCon";
    clauseVariableLst[277] = "airCon";
    clauseVariableLst[281] = "airConIssue";
    clauseVariableLst[285] = "airConIssue";
 
-   clauseVariableLst[289] = "gear";              //
+   clauseVariableLst[289] = "gear";
    clauseVariableLst[293] = "gear";
    clauseVariableLst[297] = "gearIssue";
    clauseVariableLst[301] = "gearIssue";
    
-   clauseVariableLst[305] = "brk";                //20
+   clauseVariableLst[305] = "brk";
    clauseVariableLst[309] = "brk";
    clauseVariableLst[313] = "brkIssue";
    clauseVariableLst[317] = "brkIssue";
 /* <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><> */
       
-   
-   
-   
-   
-   
+
 
     string conclt[] = {"", "ISSUE", "BROKE", "INT", "EXT",
                       "BATTERY/ALTERNATOR-ISSUE", "BATTERY/ALTERNATOR-ISSUE",
@@ -393,7 +368,7 @@ string conclutionQueue[5],
         clvarlt[759]= "BREAKS";
         clvarlt[760]= "GRIND";
 
-
+        cout << "PLEASE TOUN ON CAPS LOCK TO RUN THIS PROGRAM\n";
         cout << "ENTER WHAT PROBLEM OF THE CAR YOU ARE TRYING TO FIND \n" ;
         cout << "BATTERY/ALTERNATOR-ISSUE \n" ;
         cout << "ENGINE-ISSUE \n";
@@ -686,50 +661,49 @@ b545:
 
 
                           case 5: (baissue= "YES");
-                                  cout <<"YOUR ALTERNATOR IS THE ISSUE\n";
-                                  conditionVariable = alternatorIssue;
+                                  cout <<"YOUR ALTERNATOR IS THE ISSUE REPAIR #1\n";
+                                 
                                   break;
 
                           case 6: (baissue= "YES");
-                                  cout <<"YOUR BATTEY IS THE ISSUE\n";
-
-                                  conditionVariable = batteryIssue;
+                                  cout <<"YOUR BATTEY IS THE ISSUE REPAIR #2\n";
+                               
                                   break;
 
 
                         case 7:  (engissue= "YES");
-                                  cout <<"YOUR START MOTOR IS THE ISSUE\n";
-                                  conditionVariable = starterMotorIssue;
+                                  cout <<"YOUR START MOTOR IS THE ISSUE REPAIR #3\n";
+                                 
                                   break;
 
                           case 8: (engissue= "YES");
-                                  cout <<"YOUR IGNITION COIL IS THE ISSUE\n";
-                                 conditionVariable = ignCoIssue;
+                                  cout <<"YOUR IGNITION COIL IS THE ISSUE REPAIR #4\n";
+                                
                                   break;
 
                         case 9:(engissue= "YES");
-                                  cout <<"YOUR DIST CAP IS THE ISSUE\n";
-                                 conditionVariable = distCapIssue;
+                                  cout <<"YOUR DIST CAP IS THE ISSUE REPAIR #5\n";
+                                
                                   break;
 
                         case 10: (engissue= "YES");
-                                  cout <<"AN EMPTY GAS TANK IS YOUR ISSUE\n";
-                                 conditionVariable = gasTankEmIssue;
+                                  cout <<"AN EMPTY GAS TANK IS YOUR ISSUE REPAIR #6\n";
+                                 
                                   break;
 
                         case 11: (engissue= "YES");
-                                  cout <<" THE FUEL FILTER IS THE ISSUE\n";
-                                    conditionVariable = fuleFtrIssue;
+                                  cout <<" THE FUEL FILTER IS THE ISSUE REPAIR #7\n";
+                                    
                                   break;
 
                         case 12: (engissue= "YES");
-                                cout <<"THE FUEL PUMP IS THE ISSUE\n";
-                                 conditionVariable = fulePumpIssue;
+                                cout <<"THE FUEL PUMP IS THE ISSUEREPAIR #8\n";
+                              
                                 break;
 
                         case 13: (engissue= "YES");
-                                cout <<"THE FUEL INJECTOR IS THE ISSUE\n";
-                                 conditionVariable = fuleInjIssue;
+                                cout <<"THE FUEL INJECTOR IS THE ISSUE REPAIR #9\n";
+                                 
                                 break;
 
                          case 14: (oi= "YES");
@@ -737,87 +711,99 @@ b545:
                                 break;
 
                             case 15: (uh= "YES");
-                                cout <<"THE ISSUE IS UNDER THE HOOD\n";
+                                cout <<"THE ISSUE IS UNDER THE HOOD \n";
                                 break;
 
 
                      case 16: (otheri= "YES");
-                                cout <<"SERPENTIN BELT IS THE ISSUE\n";
-                                 conditionVariable = serpBltIssue;
+                                cout <<"SERPENTIN BELT IS THE ISSUE REPAIR #10\n";
+                                 
                                 break;
 
                     case 17: (otheri= "YES");
-                                cout <<"THE SENSOR IS BROKE\n";
-                                 conditionVariable = sensorIssue;
+                                cout <<"THE SENSOR IS BROKE REPAIR #11\n";
+                              
                                 break;
 
                           case 18: (issueo= "YES");
-                                cout <<"THE WATER PUMP IS THE ISSUE\n";
-                              conditionVariable = waterPumpIssue;
+                                cout <<"THE WATER PUMP IS THE ISSUE REPAIR #12\n";
+                                 
                                 break;
 
                          case 19: (issueo= "YES");
-                                cout <<"THE SENSOR IS BROKE\n";
-                                 conditionVariable = sensorIssue;
+                                cout <<"THE SENSOR IS BROKE REPAIR #11\n";
+                                 
                                 break;
 
                      case 20: (crissue= "YES");
-                                cout <<"THE GAS TANK IS EMPTY\n";
-                                 conditionVariable = gasTankEmIssue;
+                                cout <<"THE GAS TANK IS EMPTY REPAIR #6\n";
+                                 
+                                 
                                 break;
 
                     case 21: (crissue= "YES");
-                                cout <<"THE FUEL FILTER IS THE ISSUE\n";
-                                 conditionVariable = fuleFtrIssue;
+                                cout <<"THE FUEL FILTER IS THE ISSUE REPAIR #7\n";
+                              
+                                 
                                 break;
 
                     case 22: (crissue= "YES");
-                                cout <<"THE FUEL PUMP IS THE ISSUE\n";
-                                 conditionVariable = fulePumpIssue;
+                                cout <<"THE FUEL PUMP IS THE ISSUE REPAIR #8\n";
+                                 
+                                 
                                 break;
 
                     case 23: (crissue= "YES");
-                                cout <<"THE FUEL INJECTOR IS THE ISSUE\n";
-                                 conditionVariable = fuleInjIssue;
+                                cout <<"THE FUEL INJECTOR IS THE ISSUE REPAIR #9\n";
+                                 
+                                 
                                 break;
 
                     case 24: (interiori = "YES");
-                            cout <<"THE ALLIGHNMENT OF THE CAR IS THE ISSUE\n";
-                           conditionVariable = alignmentIssue;
+                            cout <<"THE ALLIGHNMENT OF THE CAR IS THE ISSUE REPAIR #14\n";
+                           
+                           
                             break;
                       case 25: (interiori = "YES");
-                                cout <<"THE AC IS THE ISSUE\n";
-                                 conditionVariable = airConIssue;
+                                cout <<"THE AC IS THE ISSUE REPAIR #15\n";
+                              
+                                 
                                 break;
 
                       case 26: (interiori = "YES");
-                                cout <<"THE STEERING WHEEL IS THE ISSUE\n";
-                                 conditionVariable = strWhIssue;
+                                cout <<"THE STEERING WHEEL IS THE ISSUE REPAIR #16\n";
+                                 
+                                 
                                 break;
 
                       case 27: (interiori = "YES");
-                                cout <<"THE DOOR IS THE ISSUE\n";
-                               conditionVariable = doorIssue;
+                                cout <<"THE DOOR IS THE ISSUE REPAIR #17\n";
+                                 
+                               
                                 break;
 
                       case 28: (interiori = "YES");
-                                cout <<"THE GEAR SHIFT IS THE ISSUE\n";
-                                 conditionVariable = gearIssue;
+                                cout <<"THE GEAR SHIFT IS THE ISSUE REPAIR #18\n";
+                                
+                                 
                                 break;
 
                       case 29: (interiori = "YES");
-                                cout <<"THE SPEAKERS ARE THE ISSUE\n";
-                                 conditionVariable = speakerIssue;
+                                cout <<"THE SPEAKERS ARE THE ISSUE REPAIR #19\n";
+                                 
+                                 
                                 break;
 
                       case 30: (interiori = "YES");
-                                cout <<"THE PEDAL IS THE ISSUE\n";
-                              conditionVariable = pedalIssue;
+                                cout <<"THE PEDAL IS THE ISSUE REPAIR # 13\n";
+                                 
+                              
                                 break;
 
                      case 31: (interiori = "YES");
-                                cout <<"THE BRAKE IS THE ISSUE\n";
-                                 conditionVariable = brkIssue;
+                                cout <<"THE BRAKE IS THE ISSUE REPAIR # 20\n";
+                              
+                                 
                                 break;
 
 
@@ -834,6 +820,35 @@ b545:
                           }
                   }
         }
+/* <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><> */
+   
+   cout << "\n\nFOR REPAIRS ENTER THE REPAIR #\n";
+   cout << "OR ENTER 0 TO QUIT. : ";
+   cin >> repairCode;
+   
+   switch(repairCode){
+      case 1:conditionVariable = "alternatorIssue";break;
+      case 2:conditionVariable = "batteryIssue";break;
+      case 3:conditionVariable = "starterMotorIssue";break;
+      case 4:conditionVariable = "ignCoIssue";break;
+      case 5:conditionVariable = "distCapIssue";break;
+      case 6:conditionVariable = "gasTankEmIssue";break;
+      case 7:conditionVariable = "fuleFtrIssue";break;
+      case 8:conditionVariable = "fulePumpIssue";break;
+      case 9:conditionVariable = "fuleInjIssue";break;
+      case 10:conditionVariable = "serpBltIssue";break;
+      case 11:conditionVariable = "sensorIssue";break;
+      case 12:conditionVariable = "waterPumpIssue";break;
+      case 13:conditionVariable = "pedalIssue";break;
+      case 14:conditionVariable = "alignmentIssue";break;
+      case 15:conditionVariable = "airConIssue";break;
+      case 16:conditionVariable = "strWhIssue";break;
+      case 17:conditionVariable = "doorIssue";break;
+      case 18:conditionVariable = "gearIssue";break;
+      case 19:conditionVariable = "speakerIssue";break;
+      case 20:conditionVariable = "brkIssue";break;
+      default: break;
+   }
    
    conclutionQueue[backPtr] = conditionVariable;
    backPtr++;
@@ -868,105 +883,105 @@ b545:
       /* This switch() is for the IF parts */
                switch(statmentNum){
                  
-                  case 1: if(battery2 == "no") {setVal = 1;} break;
-                  case 2: if(battery2 == "yes") {setVal = 1;} break;
-                  case 3: if(batteryIssue == "yes") {setVal = 1;} break;
-                  case 4: if(batteryIssue == "no"){setVal = 1;} break;
+                  case 1: if(battery2 == "NO") {setVal = 1;} break;
+                  case 2: if(battery2 == "YES") {setVal = 1;} break;
+                  case 3: if(batteryIssue == "YES") {setVal = 1;} break;
+                  case 4: if(batteryIssue == "NO"){setVal = 1;} break;
                      
-                  case 5: if(alternator2 == "no") {setVal = 1;} break;
-                  case 6: if(alternator2 == "yes") {setVal = 1;} break;
-                  case 7: if(alternatorIssue == "yes") {setVal = 1;} break;
-                  case 8: if(alternatorIssue == "no"){setVal = 1;} break;
+                  case 5: if(alternator2 == "NO") {setVal = 1;} break;
+                  case 6: if(alternator2 == "YES") {setVal = 1;} break;
+                  case 7: if(alternatorIssue == "YES") {setVal = 1;} break;
+                  case 8: if(alternatorIssue == "NO"){setVal = 1;} break;
                      
-                  case 9: if(starterMotor2 == "no") {setVal = 1;} break;
-                  case 10: if(starterMotor2 == "yes") {setVal = 1;} break;
-                  case 11: if(starterMotorIssue == "yes") {setVal = 1;} break;
-                  case 12: if(starterMotorIssue == "no"){setVal = 1;} break;
+                  case 9: if(starterMotor2 == "NO") {setVal = 1;} break;
+                  case 10: if(starterMotor2 == "YES") {setVal = 1;} break;
+                  case 11: if(starterMotorIssue == "YES") {setVal = 1;} break;
+                  case 12: if(starterMotorIssue == "NO"){setVal = 1;} break;
                      
-                  case 13: if(pedal2 == "no") {setVal = 1;} break;
-                  case 14: if(pedal2 == "yes") {setVal = 1;} break;
-                  case 15: if(pedalIssue == "yes") {setVal = 1;} break;
-                  case 16: if(pedalIssue == "no"){setVal = 1;} break;
+                  case 13: if(pedal2 == "NO") {setVal = 1;} break;
+                  case 14: if(pedal2 == "YES") {setVal = 1;} break;
+                  case 15: if(pedalIssue == "YES") {setVal = 1;} break;
+                  case 16: if(pedalIssue == "NO"){setVal = 1;} break;
                      
-                  case 17: if(speaker2 == "no") {setVal = 1;} break;
-                  case 18: if(speaker2 == "yes") {setVal = 1;} break;
-                  case 19: if(speakerIssue == "yes") {setVal = 1;} break;
-                  case 20: if(speakerIssue == "no"){setVal = 1;} break;
+                  case 17: if(speaker2 == "NO") {setVal = 1;} break;
+                  case 18: if(speaker2 == "YES") {setVal = 1;} break;
+                  case 19: if(speakerIssue == "YES") {setVal = 1;} break;
+                  case 20: if(speakerIssue == "NO"){setVal = 1;} break;
                      
-                  case 21: if(door2 == "no") {setVal = 1;} break;
-                  case 22: if(door2 == "yes") {setVal = 1;} break;
-                  case 23: if(doorIssue == "yes") {setVal = 1;} break;
-                  case 24: if(doorIssue == "no"){setVal = 1;} break;
+                  case 21: if(door2 == "NO") {setVal = 1;} break;
+                  case 22: if(door2 == "YES") {setVal = 1;} break;
+                  case 23: if(doorIssue == "YES") {setVal = 1;} break;
+                  case 24: if(doorIssue == "NO"){setVal = 1;} break;
                      
-                  case 25:if(strWh2 == "no") {setVal = 1;} break;
-                  case 26:if(strWh2 == "yes") {setVal = 1;} break;
-                  case 27:if(strWhIssue == "yes") {setVal = 1;} break;
-                  case 28:if(strWhIssue == "no") {setVal = 1;} break;
+                  case 25:if(strWh2 == "NO") {setVal = 1;} break;
+                  case 26:if(strWh2 == "YES") {setVal = 1;} break;
+                  case 27:if(strWhIssue == "YES") {setVal = 1;} break;
+                  case 28:if(strWhIssue == "NO") {setVal = 1;} break;
                     
-                  case 29:if(fuleInj2 == "no") {setVal = 1;} break;
-                  case 30:if(fuleInj2 == "yes") {setVal = 1;} break;
-                  case 31:if(fuleInjIssue == "yes") {setVal = 1;} break;
-                  case 32:if(fuleInjIssue == "no") {setVal = 1;} break;
+                  case 29:if(fuleInj2 == "NO") {setVal = 1;} break;
+                  case 30:if(fuleInj2 == "YES") {setVal = 1;} break;
+                  case 31:if(fuleInjIssue == "YES") {setVal = 1;} break;
+                  case 32:if(fuleInjIssue == "NO") {setVal = 1;} break;
                      
-                  case 33:if(fulePump2 == "no") {setVal = 1;} break;
-                  case 34:if(fulePump2 == "yes") {setVal = 1;} break;
-                  case 35:if(fulePumpIssue == "yes") {setVal = 1;} break;
-                  case 36:if(fulePumpIssue == "no") {setVal = 1;} break;
+                  case 33:if(fulePump2 == "NO") {setVal = 1;} break;
+                  case 34:if(fulePump2 == "YES") {setVal = 1;} break;
+                  case 35:if(fulePumpIssue == "YES") {setVal = 1;} break;
+                  case 36:if(fulePumpIssue == "NO") {setVal = 1;} break;
                     
-                  case 37:if(fuleFtr2 == "no") {setVal = 1;} break;
-                  case 38:if(fuleFtr2 == "yes") {setVal = 1;} break;
-                  case 39:if(fuleFtrIssue == "yes") {setVal = 1;} break;
-                  case 40:if(fuleFtrIssue == "no") {setVal = 1;} break;
+                  case 37:if(fuleFtr2 == "NO") {setVal = 1;} break;
+                  case 38:if(fuleFtr2 == "YES") {setVal = 1;} break;
+                  case 39:if(fuleFtrIssue == "YES") {setVal = 1;} break;
+                  case 40:if(fuleFtrIssue == "NO") {setVal = 1;} break;
                      
-                  case 41:if(gasTankEm2 == "no") {setVal = 1;} break;
-                  case 42:if(gasTankEm2 == "yes") {setVal = 1;} break;
-                  case 43:if(gasTankEmIssue == "yes") {setVal = 1;} break;
-                  case 44:if(gasTankEmIssue == "no") {setVal = 1;} break;
+                  case 41:if(gasTankEm2 == "NO") {setVal = 1;} break;
+                  case 42:if(gasTankEm2 == "YES") {setVal = 1;} break;
+                  case 43:if(gasTankEmIssue == "YES") {setVal = 1;} break;
+                  case 44:if(gasTankEmIssue == "NO") {setVal = 1;} break;
 
-                  case 45:if(sensor2 == "no") {setVal = 1;} break;
-                  case 46:if(sensor2 == "yes") {setVal = 1;} break;
-                  case 47:if(sensorIssue == "yes") {setVal = 1;} break;
-                  case 48:if(sensorIssue == "no") {setVal = 1;} break;
+                  case 45:if(sensor2 == "NO") {setVal = 1;} break;
+                  case 46:if(sensor2 == "YES") {setVal = 1;} break;
+                  case 47:if(sensorIssue == "YES") {setVal = 1;} break;
+                  case 48:if(sensorIssue == "NO") {setVal = 1;} break;
                     
-                  case 49:if(waterPump2 == "no") {setVal = 1;} break;
-                  case 50:if(waterPump2 == "yes") {setVal = 1;} break;
-                  case 51:if(waterPumpIssue == "yes") {setVal = 1;} break;
-                  case 52:if(waterPumpIssue == "no") {setVal = 1;} break;
+                  case 49:if(waterPump2 == "NO") {setVal = 1;} break;
+                  case 50:if(waterPump2 == "YES") {setVal = 1;} break;
+                  case 51:if(waterPumpIssue == "YES") {setVal = 1;} break;
+                  case 52:if(waterPumpIssue == "NO") {setVal = 1;} break;
                      
-                  case 53:if(serpBlt2 == "no") {setVal = 1;} break;
-                  case 54:if(serpBlt2 == "yes") {setVal = 1;} break;
-                  case 55:if(serpBltIssue == "yes") {setVal = 1;} break;
-                  case 56:if(serpBltIssue == "no") {setVal = 1;} break;
+                  case 53:if(serpBlt2 == "NO") {setVal = 1;} break;
+                  case 54:if(serpBlt2 == "YES") {setVal = 1;} break;
+                  case 55:if(serpBltIssue == "YES") {setVal = 1;} break;
+                  case 56:if(serpBltIssue == "NO") {setVal = 1;} break;
                     
-                  case 57:if(ignCo2 == "no") {setVal = 1;} break;
-                  case 58:if(ignCo2 == "yes") {setVal = 1;} break;
-                  case 59:if(ignCoIssue == "yes") {setVal = 1;} break;
-                  case 60:if(ignCoIssue == "no") {setVal = 1;} break;
+                  case 57:if(ignCo2 == "NO") {setVal = 1;} break;
+                  case 58:if(ignCo2 == "YES") {setVal = 1;} break;
+                  case 59:if(ignCoIssue == "YES") {setVal = 1;} break;
+                  case 60:if(ignCoIssue == "NO") {setVal = 1;} break;
                      
-                  case 61:if(distCap2 == "no") {setVal = 1;} break;
-                  case 62:if(distCap2 == "yes") {setVal = 1;} break;
-                  case 63:if(distCapIssue == "yes") {setVal = 1;} break;
-                  case 64:if(distCapIssue == "no") {setVal = 1;} break;
+                  case 61:if(distCap2 == "NO") {setVal = 1;} break;
+                  case 62:if(distCap2 == "YES") {setVal = 1;} break;
+                  case 63:if(distCapIssue == "YES") {setVal = 1;} break;
+                  case 64:if(distCapIssue == "NO") {setVal = 1;} break;
                      
-                  case 65:if(alignment2 == "no") {setVal = 1;} break;
-                  case 66:if(alignment2 == "yes") {setVal = 1;} break;
-                  case 67:if(alignmentIssue == "yes") {setVal = 1;} break;
-                  case 68:if(alignmentIssue == "no") {setVal = 1;} break;
+                  case 65:if(alignment2 == "NO") {setVal = 1;} break;
+                  case 66:if(alignment2 == "YES") {setVal = 1;} break;
+                  case 67:if(alignmentIssue == "YES") {setVal = 1;} break;
+                  case 68:if(alignmentIssue == "NO") {setVal = 1;} break;
                      
-                  case 69:if(airCon2 == "no") {setVal = 1;} break;
-                  case 70:if(airCon2 == "yes") {setVal = 1;} break;
-                  case 71:if(airConIssue == "yes") {setVal = 1;} break;
-                  case 72:if(airConIssue == "no") {setVal = 1;} break;
+                  case 69:if(airCon2 == "NO") {setVal = 1;} break;
+                  case 70:if(airCon2 == "YES") {setVal = 1;} break;
+                  case 71:if(airConIssue == "YES") {setVal = 1;} break;
+                  case 72:if(airConIssue == "NO") {setVal = 1;} break;
                      
-                  case 73:if(gear2 == "no") {setVal = 1;} break;
-                  case 74:if(gear2 == "yes") {setVal = 1;} break;
-                  case 75:if(gearIssue == "yes") {setVal = 1;} break;
-                  case 76:if(gearIssue == "no") {setVal = 1;} break;
+                  case 73:if(gear2 == "NO") {setVal = 1;} break;
+                  case 74:if(gear2 == "YES") {setVal = 1;} break;
+                  case 75:if(gearIssue == "YES") {setVal = 1;} break;
+                  case 76:if(gearIssue == "NO") {setVal = 1;} break;
                      
-                  case 77:if(brk2 == "no") {setVal = 1;} break;
-                  case 78:if(brk2 == "yes") {setVal = 1;} break;
-                  case 79:if(brkIssue == "yes") {setVal = 1;} break;
-                  case 80:if(brkIssue == "no") {setVal = 1;} break;
+                  case 77:if(brk2 == "NO") {setVal = 1;} break;
+                  case 78:if(brk2 == "YES") {setVal = 1;} break;
+                  case 79:if(brkIssue == "YES") {setVal = 1;} break;
+                  case 80:if(brkIssue == "NO") {setVal = 1;} break;
 
                   default:break;
                }
@@ -980,482 +995,482 @@ b545:
       /* This switch() is for THEN */
             switch(statmentNum){
                case 1:
-                  battRepair = "no";
+                  battRepair = "NO";
                   std::cout <<  "REPAIR: THE BATTERY WILL HAVE TO BE REPLACED\n";
                   variable = "battRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 2:
-                  battRepair = "yes";
+                  battRepair = "YES";
                   std::cout <<  "REPAIR: ADD WATER TO BATTERY\n";
                   variable = "battRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 3:
-                  battery2 = "no";
-                  std::cout <<"The battery cannot be repaired\n";
+                  battery2 = "NO";
+                  std::cout <<"The battery canNOt be repaired\n";
                   variable = "battery";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 4:
-                  battery2 = "yes";
+                  battery2 = "YES";
                   std::cout << "The battery can be repaired\n";
                   variable = "battery";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 5:
-                  altRepair = "no";
+                  altRepair = "NO";
                   std::cout <<  "REPAIR: THE ALTERNATOR WILL HAVE TO BE REPLACED\n";
                   variable = "altRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 6:
-                  altRepair = "yes";
+                  altRepair = "YES";
                   std::cout <<  "REPAIR: FIX ALTERNATOR\n";
                   variable = "altRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 7:
-                  alternator2 = "no";
-                  std::cout <<"The alternator cannot be repaired\n";
+                  alternator2 = "NO";
+                  std::cout <<"The alternator canNOt be repaired\n";
                   variable = "alternator";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 8:
-                  alternator2 = "yes";
+                  alternator2 = "YES";
                   std::cout << "The alternator can be repaired\n";
                   variable = "alternator";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 9:
-                  stMoRepair = "no";
+                  stMoRepair = "NO";
                   std::cout <<  "REPAIR: THE STMO WILL HAVE TO BE REPLACED\n";
                   variable = "stMoRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 10:
-                  stMoRepair = "yes";
+                  stMoRepair = "YES";
                   std::cout <<  "REPAIR: FIX STMO\n";
                   variable = "stMoRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 11:
-                  starterMotor2 = "no";
-                  std::cout <<"The stmo cannot be repaired\n";
+                  starterMotor2 = "NO";
+                  std::cout <<"The stmo canNOt be repaired\n";
                   variable = "starterMotor";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 12:
-                  starterMotor2 = "yes";
+                  starterMotor2 = "YES";
                   std::cout << "The stmo can be repaired\n";
                   variable = "starterMotor";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 13:
-                  pedalRepair = "no";
+                  pedalRepair = "NO";
                   std::cout <<  "REPAIR: THE pedal WILL HAVE TO BE REPLACED\n";
                   variable = "pedalRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 14:
-                  pedalRepair = "yes";
+                  pedalRepair = "YES";
                   std::cout <<  "REPAIR: pedal\n";
                   variable = "pedalRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 15:
-                  pedal2 = "no";
-                  std::cout <<"The pedal cannot be repaired\n";
+                  pedal2 = "NO";
+                  std::cout <<"The pedal canNOt be repaired\n";
                   variable = "pedal";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 16:
-                  pedal2 = "yes";
+                  pedal2 = "YES";
                   std::cout << "The pedal can be repaired\n";
                   variable = "pedal";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 17:
-                  speakerRepair = "no";
+                  speakerRepair = "NO";
                   std::cout <<  "REPAIR: THE speaker WILL HAVE TO BE REPLACED\n";
                   variable = "speakerRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 18:
-                  speakerRepair = "yes";
+                  speakerRepair = "YES";
                   std::cout <<  "REPAIR: FIX speaker\n";
                   variable = "speakerRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 19:
-                  speaker2 = "no";
-                  std::cout <<"The speaker cannot be repaired\n";
+                  speaker2 = "NO";
+                  std::cout <<"The speaker canNOt be repaired\n";
                   variable = "speaker";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 20:
-                  speaker2 = "yes";
+                  speaker2 = "YES";
                   std::cout << "The speaker can be repaired\n";
                   variable = "speaker";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 21:
-                  doorRepair = "no";
+                  doorRepair = "NO";
                   std::cout <<  "REPAIR: THE door WILL HAVE TO BE REPLACED\n";
                   variable = "doorRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 22:
-                  doorRepair = "yes";
+                  doorRepair = "YES";
                   std::cout <<  "REPAIR: FIX door\n";
                   variable = "doorRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 23:
-                  door2 = "no";
+                  door2 = "NO";
                   std::cout <<  "REPAIR: THE door WILL HAVE TO BE REPLACED\n";
                   variable = "door";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 24:
-                  door2 = "yes";
+                  door2 = "YES";
                   std::cout <<  "REPAIR: FIX door\n";
                   variable = "door";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 25:
-                  strWhRepair = "no";
+                  strWhRepair = "NO";
                   std::cout <<  "REPAIR: THE strWh WILL HAVE TO BE REPLACED\n";
                   variable = "strWhRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 26:
-                  strWhRepair = "yes";
+                  strWhRepair = "YES";
                   std::cout <<  "REPAIR: FIX strWh\n";
                   variable = "strWhRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 27:
-                  strWh2 = "no";
-                  std::cout <<"The strWh cannot be repaired\n";
+                  strWh2 = "NO";
+                  std::cout <<"The strWh canNOt be repaired\n";
                   variable = "strWh";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 28:
-                  strWh2 = "yes";
+                  strWh2 = "YES";
                   std::cout << "The strWh can be repaired\n";
                   variable = "strWh";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 29:
-                  fuleInjRepair = "no";
-                  std::cout <<  "REPAIR: THE fuleInj WILL HAVE TO BE REPLACED\n";
+                  fuleInjRepair = "NO";
+                  std::cout <<  "REPAIR: THE  FULE INJECTOR WILL HAVE TO BE REPLACED\n";
                   variable = "fuleInjRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 30:
-                  fuleInjRepair = "yes";
-                  std::cout <<  "REPAIR: FIX fuleInj\n";
+                  fuleInjRepair = "YES";
+                  std::cout <<  "REPAIR: CLEAN FULE INJECTOR\n";
                   variable = "fuleInjRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 31:
-                  fuleInj2 = "no";
-                  std::cout <<"The fuleInj cannot be repaired\n";
+                  fuleInj2 = "NO";
+                  std::cout <<"The fuleInjector cannot be repaired\n";
                   variable = "fuleInj";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 32:
-                  fuleInj2 = "yes";
-                  std::cout << "The fuleInj can be repaired\n";
+                  fuleInj2 = "YES";
+                  std::cout << "The n fuleinjector can be repaired\n";
                   variable = "fuleInj";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 33:
-                  fulePumpRepair = "no";
-                  std::cout <<  "REPAIR: THE fulePump WILL HAVE TO BE REPLACED\n";
+                  fulePumpRepair = "NO";
+                  std::cout <<  "REPAIR: THE FULEPUMP WILL HAVE TO BE REPLACED\n";
                   variable = "fulePumpRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 34:
-                  fulePumpRepair = "yes";
-                  std::cout <<  "REPAIR: FIX fulePump\n";
+                  fulePumpRepair = "YES";
+                  std::cout <<  "REPAIR: CONNECT fulePump\n";
                   variable = "fulePumpRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 35:
-                  fulePump2 = "no";
+                  fulePump2 = "NO";
                   std::cout <<"The fulePump cannot be repaired\n";
                   variable = "fulePump";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 36:
-                  fulePump2 = "yes";
+                  fulePump2 = "YES";
                   std::cout << "The fulePump can be repaired\n";
                   variable = "fulePump";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 37:
-                  fuleFtrRepair = "no";
-                  std::cout <<  "REPAIR: THE fuleFtr WILL HAVE TO BE REPLACED\n";
+                  fuleFtrRepair = "NO";
+                  std::cout <<  "REPAIR: THE FULER FILTER WILL HAVE TO BE REPLACED\n";
                   variable = "fuleFtrRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 38:
-                  fuleFtrRepair = "yes";
-                  std::cout <<  "REPAIR: fuleFtr\n";
+                  fuleFtrRepair = "YES";
+                  std::cout <<  "REPAIR: CONNECT FULER FILTER\n";
                   variable = "fuleFtrRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 39:
-                  fuleFtr2 = "no";
+                  fuleFtr2 = "NO";
                   std::cout <<"The fuleFtr cannot be repaired\n";
                   variable = "fuleFtr";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 40:
-                  fuleFtr2 = "yes";
+                  fuleFtr2 = "YES";
                   std::cout << "The fuleFtr can be repaired\n";
                   variable = "fuleFtr";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 41:
-                  gasTankEmRepair = "no";
-                  std::cout <<  "REPAIR: THE gasTankEm WILL HAVE TO BE REPLACED\n";
+                  gasTankEmRepair = "NO";
+                  std::cout <<  "REPAIR: THE GAS TANK WILL HAVE TO BE REPLACED\n";
                   variable = "gasTankEmRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 42:
-                  gasTankEmRepair = "yes";
-                  std::cout <<  "REPAIR: FIX gasTankEm\n";
+                  gasTankEmRepair = "YES";
+                  std::cout <<  "REPAIR: FILL GAS TANK\n";
                   variable = "gasTankEmRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 43:
-                  gasTankEm2 = "no";
-                  std::cout <<"The gasTankEm cannot be repaired\n";
+                  gasTankEm2 = "NO";
+                  std::cout <<"The gas tank cannot be repaired\n";
                   variable = "gasTankEm";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 44:
-                  gasTankEm2 = "yes";
-                  std::cout << "The gasTankEm can be repaired\n";
+                  gasTankEm2 = "YES";
+                  std::cout << "The gas tank can be repaired\n";
                   variable = "gasTankEm";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 45:
-                  sensorRepair = "no";
+                  sensorRepair = "NO";
                   std::cout <<  "REPAIR: THE sensor WILL HAVE TO BE REPLACED\n";
                   variable = "sensorRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 46:
-                  sensorRepair = "yes";
-                  std::cout <<  "REPAIR: FIX sensor\n";
+                  sensorRepair = "YES";
+                  std::cout <<  "REPAIR: Clean SENSOR\n";
                   variable = "sensorRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 47:
-                  sensor2 = "no";
-                  std::cout <<  "REPAIR: THE sensor WILL HAVE TO BE REPLACED\n";
+                  sensor2 = "NO";
+                  std::cout <<  "sensor cannot be repaird\n";
                   variable = "sensor";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 48:
-                  sensor2 = "yes";
-                  std::cout <<  "REPAIR: FIX sensor\n";
+                  sensor2 = "YES";
+                  std::cout <<  "sensor can be repaird\n";
                   variable = "sensor";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 49:
-                  waterPumpRepair = "no";
-                  std::cout <<  "REPAIR: THE waterPump WILL HAVE TO BE REPLACED\n";
+                  waterPumpRepair = "NO";
+                  std::cout <<  "REPAIR: THE WATERPUMP WILL HAVE TO BE REPLACED\n";
                   variable = "waterPumpRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 50:
-                  waterPumpRepair = "yes";
-                  std::cout <<  "REPAIR: FIX waterPump\n";
+                  waterPumpRepair = "YES";
+                  std::cout <<  "REPAIR: CONNECT WATERPUMP\n";
                   variable = "waterPumpRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 51:
-                  waterPump2 = "no";
+                  waterPump2 = "NO";
                   std::cout <<"The waterPump cannot be repaired\n";
                   variable = "waterPump";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 52:
-                  waterPump2 = "yes";
+                  waterPump2 = "YES";
                   std::cout << "The waterPump can be repaired\n";
                   variable = "waterPump";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 53:
-                  serpBltRepair = "no";
-                  std::cout <<  "REPAIR: THE serpBlt WILL HAVE TO BE REPLACED\n";
+                  serpBltRepair = "NO";
+                  std::cout <<  "REPAIR: REPLACE BELT\n";
                   variable = "serpBltRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 54:
-                  serpBltRepair = "yes";
-                  std::cout <<  "REPAIR: FIX serpBlt\n";
+                  serpBltRepair = "YES";
+                  std::cout <<  "REPAIR: STILL REPLACE BELT\n";
                   variable = "serpBltRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 55:
-                  serpBlt2 = "no";
-                  std::cout <<"The serpBlt cannot be repaired\n";
+                  serpBlt2 = "NO";
+                  std::cout <<"The serpintinebelt cannot be repaired\n";
                   variable = "serpBlt";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 56:
-                  serpBlt2 = "yes";
-                  std::cout << "The serpBlt can be repaired\n";
+                  serpBlt2 = "YES";
+                  std::cout << "The serpintinebelt can be repaired\n";
                   variable = "serpBlt";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 57:
-                  ignCoRepair = "no";
-                  std::cout <<  "REPAIR: THE ignCo WILL HAVE TO BE REPLACED\n";
+                  ignCoRepair = "NO";
+                  std::cout <<  "REPAIR: THE INGNITIONCOIL WILL HAVE TO BE REPLACED\n";
                   variable = "ignCoRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 58:
-                  ignCoRepair = "yes";
-                  std::cout <<  "REPAIR: FIX ignCo\n";
+                  ignCoRepair = "YES";
+                  std::cout <<  "REPAIR: CONNECT IGNITIONCOIL\n";
                   variable = "ignCoRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 59:
-                  ignCo2 = "no";
-                  std::cout <<"The ignCo cannot be repaired\n";
+                  ignCo2 = "NO";
+                  std::cout <<"The ignitioncoil cannot be repaired\n";
                   variable = "ignCo";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 60:
-                  ignCo2 = "yes";
-                  std::cout << "The ignCo can be repaired\n";
+                  ignCo2 = "YES";
+                  std::cout << "The ignitioncoil can be repaired\n";
                   variable = "ignCo";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 61:
-                  distCapRepair = "no";
-                  std::cout <<  "REPAIR: THE distCap WILL HAVE TO BE REPLACED\n";
+                  distCapRepair = "NO";
+                  std::cout <<  "REPAIR: THE DISTCAP WILL HAVE TO BE REPLACED\n";
                   variable = "distCapRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 62:
-                  distCapRepair = "yes";
-                  std::cout <<  "REPAIR: distCap\n";
+                  distCapRepair = "YES";
+                  std::cout <<  "REPAIR: CONNECT THE DISTCAP\n";
                   variable = "distCapRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 63:
-                  distCap2 = "no";
+                  distCap2 = "NO";
                   std::cout <<"The distCap cannot be repaired\n";
                   variable = "distCap";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 64:
-                  distCap2 = "yes";
-                  std::cout << "The distCap can be repaired\n";
+                  distCap2 = "YES";
+                  std::cout << "The distributor cap can be repaired\n";
                   variable = "distCap";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 65:
-                  alignmentRepair = "no";
-                  std::cout <<  "REPAIR: THE ALIGNMENT WILL HAVE TO BE REPLACED\n";
+                  alignmentRepair = "NO";
+                  std::cout <<  "REPAIR: REBALENCE LEFT SIDE WHEELS\n";
                   variable = "alignmentRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 66:
-                  alignmentRepair = "yes";
-                  std::cout <<  "REPAIR: FIX ALIGNMENT\n";
+                  alignmentRepair = "YES";
+                  std::cout <<  "REPAIR: REBALENCE RIGHT SIDE WHEELS\n";
                   variable = "alignmentRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 67:
-                  alignment2 = "no";
-                  std::cout <<"The ALIGNMENT cannot be repaired\n";
+                  alignment2 = "NO";
+                  std::cout <<"The aligmnt can be repaired\n";
                   variable = "alignment";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 68:
-                  alignment2 = "yes";
-                  std::cout << "The ALIGNMENT can be repaired\n";
+                  alignment2 = "YES";
+                  std::cout << "The alignment can be repaired\n";
                   variable = "alignment";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 69:
-                  airConRepair = "no";
-                  std::cout <<  "REPAIR: THE A/C WILL HAVE TO BE REPLACED\n";
+                  airConRepair = "NO";
+                  std::cout <<  "REPAIR: THE CONDENSOR WILL HAVE TO BE REPLACED\n";
                   variable = "airConRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 70:
-                  airConRepair = "yes";
-                  std::cout <<  "REPAIR: FIX A/C\n";
+                  airConRepair = "YES";
+                  std::cout <<  "REPAIR: ADD FREON\n";
                   variable = "airConRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 71:
-                  airCon2 = "no";
+                  airCon2 = "NO";
                   std::cout <<"The A/C cannot be repaired\n";
                   variable = "airCon";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 72:
-                  airCon2 = "yes";
+                  airCon2 = "YES";
                   std::cout << "The A/C can be repaired\n";
                   variable = "airCon";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 73:
-                  gearRepair = "no";
+                  gearRepair = "NO";
                   std::cout <<  "REPAIR: THE GEAR WILL HAVE TO BE REPLACED\n";
                   variable = "gearRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 74:
-                  gearRepair = "yes";
-                  std::cout <<  "REPAIR: FIX GEAR\n";
+                  gearRepair = "YES";
+                  std::cout <<  "REPAIR: ADD OIL TO GEARSHIFTER\n";
                   variable = "gearRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 75:
-                  gear2 = "no";
-                  std::cout <<   "The GEAR cannot be repaired\n";
+                  gear2 = "NO";
+                  std::cout << "The GEAR cannot be repaired\n";
                   variable = "gear";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 76:
-                  gear2 = "yes";
-                  std::cout <<   "The GEAR can be repaired\n";
+                  gear2 = "YES";
+                  std::cout << "The gear shift can be repaired\n";
                   variable = "gear";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 77:
-                  brkRepair = "no";
+                  brkRepair = "NO";
                   std::cout <<  "REPAIR: THE BREAKS WILL HAVE TO BE REPLACED\n";
                   variable = "brkRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 78:
-                  brkRepair = "yes";
+                  brkRepair = "YES";
                   std::cout <<  "REPAIR: FIX BREAKS\n";
                   variable = "brkRepair";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 79:
-                  brk2 = "no";
-                  std::cout <<  "The BREAKS cannot be repaired\n";
+                  brk2 = "NO";
+                  std::cout <<  "The BREAKS canNOt be repaired\n";
                   variable = "brk";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
                case 80:
-                  brk2 = "yes";
-                  std::cout <<  "The BREAKS can be repaired\n";
+                  brk2 = "YES";
+                  std::cout <<  "The breaks can be repaired\n";
                   variable = "brk";
                   instantiate(variable,variableLst,conclutionQueue,instlt2,backPtr);
                   break;
@@ -1465,7 +1480,7 @@ b545:
             firstStm = statmentNum + 1;
             flag = false;
          }
-      }          /*  <--------------------------------------    End of loop 2 */
+      }
       frontPtr++;
       if(frontPtr < backPtr){
          firstStm = 1;
@@ -1473,7 +1488,7 @@ b545:
       }
       else
          flag = true;
-   }            /*  <--------------------------------------     End of loop 3 */
+   }
    return 0;
 
  }
@@ -1618,18 +1633,18 @@ void instantiate(string& varble, string* varlt, int& i, int* instlt,
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 <> void search()                                                             <>
-<>                  <>
-<>                  <>
+<> search for value                 <>
+<>on the clause list.                  <>
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><> */
 
 void search(string* cVL, string* cQ, int& cn, int& sn, int& fp,int& fs){
    bool flag = true;
    int k;
    sn = fs;
-   while(flag == true && sn < 81){  // sn needs to reach the clause number ex: sn < 13 = clause 12
-      cn = 1;                       // sn < 448 <-- for all 30
+   while(flag == true && sn < 81){
+      cn = 1;
       k = 4 * (sn - 1) + cn;
-//      std::cout << cVL[k] <<" "<< cQ[fp] <<" = k search   \n";
+
       while(cVL[k] != cQ[fp] && cn < 4){
          cn++;
          k = 4 * (sn - 1) + cn;
@@ -1645,7 +1660,8 @@ void search(string* cVL, string* cQ, int& cn, int& sn, int& fp,int& fs){
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 <> void check_instantiation() <>
-<>                            <>
+<>  checks to see if issue
+<> is on Q.
 <>                            <>
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><> */
 
@@ -1664,83 +1680,83 @@ void check_instantiation(string& var, string* varLs, int* inst,
       inst[i] = 1;
       switch(i){
          case 1:
-            std::cout << "Is the battery maintenance free? (yes or no):  ";
+            std::cout << "Is the battery maintenance free?(YES or NO):  ";
             std::cin>> batt;
             break;
          case 2:
-            std::cout << "Is the alternator broken? (yes or no) ";
+            std::cout << "Is the alternator connected?(YES or NO): ";
             std::cin>> alt;
             break;
          case 3:
-            std::cout << "Is the starter motor broken? (yes or no) ";
+            std::cout << "Is the starter motor connected?(YES or NO): ";
             std::cin>> stmo;
             break;
          case 4:
-            std::cout << "Is the pedal broken? (yes or no): ";
+            std::cout << "Is the pedal broken?(YES or NO): ";
             std::cin>> ped;
             break;
          case 5:
-            std::cout << "Is the speaker broken? (yes or no): ";
+            std::cout << "Is the speaker blown? (YES or NO): ";
             std::cin>> spk;
             break;
          case 6:
-            std::cout << "Is the door broken? (yes or no):  ";
+            std::cout << "Is the door latch broken?(YES or NO):  ";
             std::cin>> dr;
             break;
          case 7:
-            std::cout << "Is the steer broken?(yes or no) ";
+            std::cout << "Does the steeringwheel shake?(YES or NO): ";
             std::cin>> sw;
             break;
          case 8:
-            std::cout << "Is the fuleinj motor broken?(yes or no) ";
+            std::cout << "Is the fule injector clogged?(YES or NO): ";
             std::cin>> fI;
             break;
          case 9:
-            std::cout << "Is the fulepump broken? (yes or no): ";
+            std::cout << "Is the fule pump connected?(YES or NO): ";
             std::cin>> fP;
             break;
          case 10:
-            std::cout << "Is the fulefilter broken? (yes or no): ";
+            std::cout << "Is the fule filter connected?(YES or NO): ";
             std::cin>> fF;
             break;
          case 11:
-            std::cout << "Is the gastank free? (yes or no):  ";
+            std::cout << "Does the gastank have a hole in it?(YES or NO): ";
             std::cin>> gT;
             break;
          case 12:
-            std::cout << "Is the sensor broken? (yes or no) ";
+            std::cout << "Is the sensor dirty?(YES or NO): ";
             std::cin>> s;
             break;
          case 13:
-            std::cout << "Is the waterpump  broken? (yes or no) ";
+            std::cout << "Is the water pump connected?(YES or NO): ";
             std::cin>> wP;
             break;
          case 14:
-            std::cout << "Is the serpB broken? (yes or no): ";
+            std::cout << "Is the serpentine belt present? (YES or NO): ";
             std::cin>> sB;
             break;
          case 15:
-            std::cout << "Is the ingnitioncoil broken? (yes or no): ";
+            std::cout << "Is the ingnitioncoil connected?(YES or NO): ";
             std::cin>> iG;
             break;
          case 16:
-            std::cout << "Is the distributer cap broken? (yes or no):  ";
+            std::cout << "Is the distributer cap broken?(YES or NO): ";
             std::cin>> dC;
             break;
          case 17:
-            std::cout << "Is the alignment bad?(yes or no) ";
+            std::cout << "Does the car pull tho the left?(YES or NO): ";
             std::cin>> aM;
             break;
          case 18:
-            std::cout << "Is the A/C bad?(yes or no) ";
+            std::cout << "Does the A/C system have freon?(YES or NO): ";
             std::cin>> aC;
             break;
          case 19:
-            std::cout << "Is the Gear broken?(yes or no) ";
+            std::cout << "Does the gearshift make noise?(YES or NO): ";
             std::cin>> g;
             break;
          case 20:
-            std::cout << "Are the Breaks bad ?(yes or no) ";
+            std::cout << "Do the breaks make noise?(YES or NO): ";
             std::cin>> bK;
             break;
          
